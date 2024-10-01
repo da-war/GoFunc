@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+type funco func(int) int
+
 func main() {
 	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	doubledArray := transformNumbers(numbers, doubleNumber)
@@ -12,7 +14,7 @@ func main() {
 	fmt.Println("Tripled", tripledArray)
 }
 
-func transformNumbers(numbers []int, fn func(int) int) []int {
+func transformNumbers(numbers []int, fn funco) []int {
 	transformed := []int{}
 	for i := range numbers {
 		transformed = append(transformed, fn(numbers[i]))
